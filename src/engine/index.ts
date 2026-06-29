@@ -6,6 +6,12 @@ export type {
   SampleSizeResult,
 } from "./types";
 export { binarySampleSize, type BinaryInput } from "./binary";
+export { continuousSampleSize, type ContinuousInput } from "./continuous";
+export {
+  survivalSampleSize,
+  maxR2csSurvival,
+  type SurvivalInput,
+} from "./survival";
 export {
   maxR2csBinary,
   nagelkerkeToR2cs,

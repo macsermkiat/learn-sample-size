@@ -1,6 +1,8 @@
 import { describe, it, expect } from "vitest";
 import fixtureDoc from "../data/pmsampsize-fixtures.json";
 import { binarySampleSize } from "./binary";
+import { continuousSampleSize } from "./continuous";
+import { survivalSampleSize } from "./survival";
 import { round2 } from "./shared";
 
 // The committed gold-standard battery from the authors' pmsampsize package (see
@@ -28,6 +30,8 @@ interface Fixture {
 
 const fixtures = (fixtureDoc as unknown as { fixtures: Fixture[] }).fixtures;
 const binary = fixtures.filter((f) => f.type === "binary");
+const survival = fixtures.filter((f) => f.type === "survival");
+const continuous = fixtures.filter((f) => f.type === "continuous");
 
 describe(`pmsampsize parity — binary (${binary.length} scenarios)`, () => {
   it("has a non-trivial battery including the published examples", () => {
@@ -66,6 +70,64 @@ describe(`pmsampsize parity — binary (${binary.length} scenarios)`, () => {
       expect(eppCentDiff).toBeLessThanOrEqual(1);
 
       expect(r.maxR2cs!).toBeCloseTo(f.maxR2cs!, 3);
+    });
+  }
+});
+
+describe(`pmsampsize parity — survival (${survival.length} scenarios)`, () => {
+  it("includes the published VTE example (5143 / 3429)", () => {
+    expect(survival.some((f) => f.finalN === 5143)).toBe(true);
+    expect(survival.some((f) => f.finalN === 3429)).toBe(true);
+  });
+
+  for (const f of survival) {
+    it(`${f.label}`, () => {
+      const r = survivalSampleSize({
+        parameters: f.inputs.parameters,
+        r2cs: f.inputs.csrsquared,
+        rate: f.inputs.rate,
+        timepoint: f.inputs.timepoint,
+        meanfup: f.inputs.meanfup,
+        shrinkage: f.inputs.shrinkage,
+      });
+      const n = (id: string) => r.criteria.find((c) => c.id === id)!.n;
+      // Package criteria order: [shrinkage T2, optimism T3, risk-precision T1=max].
+      expect(n("T2")).toBe(f.criteriaN[0]);
+      expect(n("T3")).toBe(f.criteriaN[1]);
+      expect(n("T1")).toBe(f.criteriaN[2]);
+      expect(r.n).toBe(f.finalN);
+      expect(r.events).toBe(f.eventsDisplay);
+      const eppCentDiff = Math.round(Math.abs(r.ratio - f.epp!) * 100);
+      expect(eppCentDiff).toBeLessThanOrEqual(1);
+      expect(r.maxR2cs!).toBeCloseTo(f.maxR2cs!, 3);
+    });
+  }
+});
+
+describe(`pmsampsize parity — continuous (${continuous.length} scenarios)`, () => {
+  it("includes the published fat-free-mass example (254)", () => {
+    expect(continuous.some((f) => f.finalN === 254)).toBe(true);
+  });
+
+  for (const f of continuous) {
+    it(`${f.label}`, () => {
+      const r = continuousSampleSize({
+        parameters: f.inputs.parameters,
+        r2: f.inputs.rsquared,
+        intercept: f.inputs.intercept,
+        sd: f.inputs.sd,
+        shrinkage: f.inputs.shrinkage,
+        mmoe: f.inputs.mmoe,
+      });
+      const n = (id: string) => r.criteria.find((c) => c.id === id)!.n;
+      // Package criteria order: [shrinkage C3, optimism C4, residual-SD C2, intercept C1].
+      expect(n("C3")).toBe(f.criteriaN[0]);
+      expect(n("C4")).toBe(f.criteriaN[1]);
+      expect(n("C2")).toBe(f.criteriaN[2]);
+      expect(n("C1")).toBe(f.criteriaN[3]);
+      expect(r.n).toBe(f.finalN);
+      const sppCentDiff = Math.round(Math.abs(r.ratio - f.spp!) * 100);
+      expect(sppCentDiff).toBeLessThanOrEqual(1);
     });
   }
 });
