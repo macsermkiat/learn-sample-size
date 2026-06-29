@@ -1,5 +1,13 @@
 import { describe, it, expect } from "vitest";
-import { barGeometry, axisTicks, type ChartDims, type BarInput } from "./geometry";
+import {
+  barGeometry,
+  axisTicks,
+  makeLinearScales,
+  linePath,
+  type ChartDims,
+  type BarInput,
+  type Pt,
+} from "./geometry";
 
 const dims: ChartDims = {
   width: 480,
@@ -58,6 +66,35 @@ describe("barGeometry", () => {
     g.bars.forEach((b) => {
       [b.x, b.y, b.width, b.height].forEach((v) => expect(Number.isNaN(v)).toBe(false));
     });
+  });
+});
+
+describe("makeLinearScales + linePath", () => {
+  const s = makeLinearScales(dims, [0, 0.5], [0, 5000]);
+  it("maps the x domain across the inner width and inverts y", () => {
+    expect(s.x(0)).toBeCloseTo(0, 6);
+    expect(s.x(0.5)).toBeCloseTo(s.innerWidth, 6);
+    expect(s.y(5000)).toBeCloseTo(0, 6); // top
+    expect(s.y(0)).toBeCloseTo(s.innerHeight, 6); // bottom
+  });
+  it("builds an SVG path that starts with a moveto and never emits NaN", () => {
+    const pts: Pt[] = [
+      { x: 0.05, y: 1000 },
+      { x: 0.2, y: 2500 },
+      { x: 0.4, y: 4800 },
+    ];
+    const d = linePath(pts, s);
+    expect(d.startsWith("M")).toBe(true);
+    expect(d.includes("NaN")).toBe(false);
+  });
+  it("drops out-of-domain points instead of drawing off-canvas", () => {
+    const pts: Pt[] = [
+      { x: 0.05, y: 1000 },
+      { x: 0.2, y: 99999 }, // above y-domain -> dropped
+    ];
+    const d = linePath(pts, s);
+    const commandCount = (d.match(/[ML]/g) ?? []).length;
+    expect(commandCount).toBeLessThanOrEqual(1);
   });
 });
 

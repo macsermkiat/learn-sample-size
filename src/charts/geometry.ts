@@ -1,4 +1,5 @@
 import { scaleBand, scaleLinear, type ScaleLinear } from "d3-scale";
+import { line } from "d3-shape";
 
 // Pure geometry layer: numbers -> SVG rectangles and pixel coordinates. No
 // React, no DOM. Kept pure so the coordinate math is unit-testable without a
@@ -94,4 +95,40 @@ export interface Tick {
 
 export function axisTicks(scale: ScaleLinear<number, number>, count: number): Tick[] {
   return scale.ticks(count).map((value) => ({ value, pos: scale(value) }));
+}
+
+// --- Line charts (N-vs-φ demo, intro figures) -------------------------------
+export interface Pt {
+  x: number;
+  y: number;
+}
+
+export interface LineScales {
+  x: ScaleLinear<number, number>;
+  y: ScaleLinear<number, number>;
+  innerWidth: number;
+  innerHeight: number;
+}
+
+export function makeLinearScales(
+  dims: ChartDims,
+  xDomain: readonly [number, number],
+  yDomain: readonly [number, number],
+): LineScales {
+  const innerWidth = dims.width - dims.margin.left - dims.margin.right;
+  const innerHeight = dims.height - dims.margin.top - dims.margin.bottom;
+  const x = scaleLinear().domain([...xDomain]).range([0, innerWidth]);
+  // SVG y grows downward, so the range is inverted: high values sit at the top.
+  const y = scaleLinear().domain([...yDomain]).range([innerHeight, 0]);
+  return { x, y, innerWidth, innerHeight };
+}
+
+/** SVG path `d` for a series; points outside the y-domain are dropped (honest break). */
+export function linePath(points: readonly Pt[], scales: LineScales): string {
+  const [yMin, yMax] = scales.y.domain();
+  const gen = line<Pt>()
+    .defined((p) => Number.isFinite(p.y) && p.y >= yMin && p.y <= yMax)
+    .x((p) => scales.x(p.x))
+    .y((p) => scales.y(p.y));
+  return gen([...points]) ?? "";
 }
