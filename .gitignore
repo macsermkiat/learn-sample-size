@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+
+# Test / tooling
+coverage/
+playwright-report/
+test-results/
+.vitest/
+
+# Editor / OS
+.DS_Store
+*.local
+.idea/
+.vscode/
+
+# Source paper must never be committed (licensing). Reference by DOI instead.
+*.pdf
+
+# Logs
+*.log
+npm-debug.log*

@@ -1,0 +1,1825 @@
+{
+  "meta": {
+    "generator": "scripts/fixtures/generate-fixtures.R",
+    "package": "pmsampsize",
+    "packageVersion": "1.1.3",
+    "rVersion": "R version 4.2.2 (2022-10-31)",
+    "generatedDate": "2026-06-30",
+    "note": "Gold-standard outputs from the authors' reference package. eventsDisplay = ceiling(N * outcome-frequency) to match the package's printed event count. EPP/SPP as printed (2 dp)."
+  },
+  "fixtures": [
+    {
+      "label": "Example 1 — pre-eclampsia (P=30)",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 30,
+        "prevalence": 0.05,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [5249, 1770, 73],
+      "shrinkage": [0.9, 0.753, 0.9],
+      "finalN": 5249,
+      "maxR2cs": 0.32768647,
+      "nagR2": 0.15258488,
+      "eventsDisplay": 263,
+      "epp": 8.75
+    },
+    {
+      "label": "Example 1 — pre-eclampsia (P=20)",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 20,
+        "prevalence": 0.05,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [3500, 1180, 73],
+      "shrinkage": [0.9, 0.753, 0.9],
+      "finalN": 3500,
+      "maxR2cs": 0.32768647,
+      "nagR2": 0.15258488,
+      "eventsDisplay": 175,
+      "epp": 8.75
+    },
+    {
+      "label": "grid b phi=0.50 P=10 r2=0.05",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 10,
+        "prevalence": 0.5,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1750, 255, 385],
+      "shrinkage": [0.9, 0.571, 0.9],
+      "finalN": 1750,
+      "maxR2cs": 0.75,
+      "nagR2": 0.06666667,
+      "eventsDisplay": 875,
+      "epp": 87.5
+    },
+    {
+      "label": "grid b phi=0.50 P=10 r2=0.10",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 10,
+        "prevalence": 0.5,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [850, 248, 385],
+      "shrinkage": [0.9, 0.727, 0.9],
+      "finalN": 850,
+      "maxR2cs": 0.75,
+      "nagR2": 0.13333333,
+      "eventsDisplay": 425,
+      "epp": 42.5
+    },
+    {
+      "label": "grid b phi=0.50 P=10 r2=0.15",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.15,
+        "parameters": 10,
+        "prevalence": 0.5,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [549, 241, 385],
+      "shrinkage": [0.9, 0.8, 0.9],
+      "finalN": 549,
+      "maxR2cs": 0.75,
+      "nagR2": 0.2,
+      "eventsDisplay": 275,
+      "epp": 27.45
+    },
+    {
+      "label": "grid b phi=0.50 P=20 r2=0.05",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 20,
+        "prevalence": 0.5,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [3500, 510, 385],
+      "shrinkage": [0.9, 0.571, 0.9],
+      "finalN": 3500,
+      "maxR2cs": 0.75,
+      "nagR2": 0.06666667,
+      "eventsDisplay": 1750,
+      "epp": 87.5
+    },
+    {
+      "label": "grid b phi=0.50 P=20 r2=0.10",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 20,
+        "prevalence": 0.5,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1699, 496, 385],
+      "shrinkage": [0.9, 0.727, 0.9],
+      "finalN": 1699,
+      "maxR2cs": 0.75,
+      "nagR2": 0.13333333,
+      "eventsDisplay": 850,
+      "epp": 42.48
+    },
+    {
+      "label": "grid b phi=0.50 P=20 r2=0.15",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.15,
+        "parameters": 20,
+        "prevalence": 0.5,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1097, 482, 385],
+      "shrinkage": [0.9, 0.8, 0.9],
+      "finalN": 1097,
+      "maxR2cs": 0.75,
+      "nagR2": 0.2,
+      "eventsDisplay": 549,
+      "epp": 27.42
+    },
+    {
+      "label": "grid b phi=0.50 P=30 r2=0.05",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 30,
+        "prevalence": 0.5,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [5249, 765, 385],
+      "shrinkage": [0.9, 0.571, 0.9],
+      "finalN": 5249,
+      "maxR2cs": 0.75,
+      "nagR2": 0.06666667,
+      "eventsDisplay": 2625,
+      "epp": 87.48
+    },
+    {
+      "label": "grid b phi=0.50 P=30 r2=0.10",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 30,
+        "prevalence": 0.5,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [2548, 744, 385],
+      "shrinkage": [0.9, 0.727, 0.9],
+      "finalN": 2548,
+      "maxR2cs": 0.75,
+      "nagR2": 0.13333333,
+      "eventsDisplay": 1274,
+      "epp": 42.47
+    },
+    {
+      "label": "grid b phi=0.50 P=30 r2=0.15",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.15,
+        "parameters": 30,
+        "prevalence": 0.5,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1646, 723, 385],
+      "shrinkage": [0.9, 0.8, 0.9],
+      "finalN": 1646,
+      "maxR2cs": 0.75,
+      "nagR2": 0.2,
+      "eventsDisplay": 823,
+      "epp": 27.43
+    },
+    {
+      "label": "grid b phi=0.40 P=10 r2=0.05",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 10,
+        "prevalence": 0.4,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1750, 259, 369],
+      "shrinkage": [0.9, 0.575, 0.9],
+      "finalN": 1750,
+      "maxR2cs": 0.73972677,
+      "nagR2": 0.06759252,
+      "eventsDisplay": 700,
+      "epp": 70
+    },
+    {
+      "label": "grid b phi=0.40 P=10 r2=0.10",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 10,
+        "prevalence": 0.4,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [850, 252, 369],
+      "shrinkage": [0.9, 0.73, 0.9],
+      "finalN": 850,
+      "maxR2cs": 0.73972677,
+      "nagR2": 0.13518505,
+      "eventsDisplay": 340,
+      "epp": 34
+    },
+    {
+      "label": "grid b phi=0.40 P=10 r2=0.15",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.15,
+        "parameters": 10,
+        "prevalence": 0.4,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [549, 245, 369],
+      "shrinkage": [0.9, 0.802, 0.9],
+      "finalN": 549,
+      "maxR2cs": 0.73972677,
+      "nagR2": 0.20277757,
+      "eventsDisplay": 220,
+      "epp": 21.96
+    },
+    {
+      "label": "grid b phi=0.40 P=20 r2=0.05",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 20,
+        "prevalence": 0.4,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [3500, 517, 369],
+      "shrinkage": [0.9, 0.575, 0.9],
+      "finalN": 3500,
+      "maxR2cs": 0.73972677,
+      "nagR2": 0.06759252,
+      "eventsDisplay": 1400,
+      "epp": 70
+    },
+    {
+      "label": "grid b phi=0.40 P=20 r2=0.10",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 20,
+        "prevalence": 0.4,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1699, 503, 369],
+      "shrinkage": [0.9, 0.73, 0.9],
+      "finalN": 1699,
+      "maxR2cs": 0.73972677,
+      "nagR2": 0.13518505,
+      "eventsDisplay": 680,
+      "epp": 33.98
+    },
+    {
+      "label": "grid b phi=0.40 P=20 r2=0.15",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.15,
+        "parameters": 20,
+        "prevalence": 0.4,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1097, 489, 369],
+      "shrinkage": [0.9, 0.802, 0.9],
+      "finalN": 1097,
+      "maxR2cs": 0.73972677,
+      "nagR2": 0.20277757,
+      "eventsDisplay": 439,
+      "epp": 21.94
+    },
+    {
+      "label": "grid b phi=0.40 P=30 r2=0.05",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 30,
+        "prevalence": 0.4,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [5249, 776, 369],
+      "shrinkage": [0.9, 0.575, 0.9],
+      "finalN": 5249,
+      "maxR2cs": 0.73972677,
+      "nagR2": 0.06759252,
+      "eventsDisplay": 2100,
+      "epp": 69.99
+    },
+    {
+      "label": "grid b phi=0.40 P=30 r2=0.10",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 30,
+        "prevalence": 0.4,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [2548, 755, 369],
+      "shrinkage": [0.9, 0.73, 0.9],
+      "finalN": 2548,
+      "maxR2cs": 0.73972677,
+      "nagR2": 0.13518505,
+      "eventsDisplay": 1020,
+      "epp": 33.97
+    },
+    {
+      "label": "grid b phi=0.40 P=30 r2=0.15",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.15,
+        "parameters": 30,
+        "prevalence": 0.4,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1646, 733, 369],
+      "shrinkage": [0.9, 0.802, 0.9],
+      "finalN": 1646,
+      "maxR2cs": 0.73972677,
+      "nagR2": 0.20277757,
+      "eventsDisplay": 659,
+      "epp": 21.95
+    },
+    {
+      "label": "grid b phi=0.30 P=10 r2=0.05",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 10,
+        "prevalence": 0.3,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1750, 272, 323],
+      "shrinkage": [0.9, 0.586, 0.9],
+      "finalN": 1750,
+      "maxR2cs": 0.70527973,
+      "nagR2": 0.07089386,
+      "eventsDisplay": 525,
+      "epp": 52.5
+    },
+    {
+      "label": "grid b phi=0.30 P=10 r2=0.10",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 10,
+        "prevalence": 0.3,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [850, 264, 323],
+      "shrinkage": [0.9, 0.739, 0.9],
+      "finalN": 850,
+      "maxR2cs": 0.70527973,
+      "nagR2": 0.14178771,
+      "eventsDisplay": 255,
+      "epp": 25.5
+    },
+    {
+      "label": "grid b phi=0.30 P=10 r2=0.15",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.15,
+        "parameters": 10,
+        "prevalence": 0.3,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [549, 257, 323],
+      "shrinkage": [0.9, 0.81, 0.9],
+      "finalN": 549,
+      "maxR2cs": 0.70527973,
+      "nagR2": 0.21268157,
+      "eventsDisplay": 165,
+      "epp": 16.47
+    },
+    {
+      "label": "grid b phi=0.30 P=20 r2=0.05",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 20,
+        "prevalence": 0.3,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [3500, 543, 323],
+      "shrinkage": [0.9, 0.586, 0.9],
+      "finalN": 3500,
+      "maxR2cs": 0.70527973,
+      "nagR2": 0.07089386,
+      "eventsDisplay": 1050,
+      "epp": 52.5
+    },
+    {
+      "label": "grid b phi=0.30 P=20 r2=0.10",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 20,
+        "prevalence": 0.3,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1699, 528, 323],
+      "shrinkage": [0.9, 0.739, 0.9],
+      "finalN": 1699,
+      "maxR2cs": 0.70527973,
+      "nagR2": 0.14178771,
+      "eventsDisplay": 510,
+      "epp": 25.48
+    },
+    {
+      "label": "grid b phi=0.30 P=20 r2=0.15",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.15,
+        "parameters": 20,
+        "prevalence": 0.3,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1097, 513, 323],
+      "shrinkage": [0.9, 0.81, 0.9],
+      "finalN": 1097,
+      "maxR2cs": 0.70527973,
+      "nagR2": 0.21268157,
+      "eventsDisplay": 330,
+      "epp": 16.45
+    },
+    {
+      "label": "grid b phi=0.30 P=30 r2=0.05",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 30,
+        "prevalence": 0.3,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [5249, 814, 323],
+      "shrinkage": [0.9, 0.586, 0.9],
+      "finalN": 5249,
+      "maxR2cs": 0.70527973,
+      "nagR2": 0.07089386,
+      "eventsDisplay": 1575,
+      "epp": 52.49
+    },
+    {
+      "label": "grid b phi=0.30 P=30 r2=0.10",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 30,
+        "prevalence": 0.3,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [2548, 792, 323],
+      "shrinkage": [0.9, 0.739, 0.9],
+      "finalN": 2548,
+      "maxR2cs": 0.70527973,
+      "nagR2": 0.14178771,
+      "eventsDisplay": 765,
+      "epp": 25.48
+    },
+    {
+      "label": "grid b phi=0.30 P=30 r2=0.15",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.15,
+        "parameters": 30,
+        "prevalence": 0.3,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1646, 770, 323],
+      "shrinkage": [0.9, 0.81, 0.9],
+      "finalN": 1646,
+      "maxR2cs": 0.70527973,
+      "nagR2": 0.21268157,
+      "eventsDisplay": 494,
+      "epp": 16.46
+    },
+    {
+      "label": "grid b phi=0.20 P=10 r2=0.05",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 10,
+        "prevalence": 0.2,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1750, 304, 246],
+      "shrinkage": [0.9, 0.613, 0.9],
+      "finalN": 1750,
+      "maxR2cs": 0.63241653,
+      "nagR2": 0.07906182,
+      "eventsDisplay": 350,
+      "epp": 35
+    },
+    {
+      "label": "grid b phi=0.20 P=10 r2=0.10",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 10,
+        "prevalence": 0.2,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [850, 295, 246],
+      "shrinkage": [0.9, 0.76, 0.9],
+      "finalN": 850,
+      "maxR2cs": 0.63241653,
+      "nagR2": 0.15812364,
+      "eventsDisplay": 170,
+      "epp": 17
+    },
+    {
+      "label": "grid b phi=0.20 P=10 r2=0.15",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.15,
+        "parameters": 10,
+        "prevalence": 0.2,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [549, 287, 246],
+      "shrinkage": [0.9, 0.826, 0.9],
+      "finalN": 549,
+      "maxR2cs": 0.63241653,
+      "nagR2": 0.23718545,
+      "eventsDisplay": 110,
+      "epp": 10.98
+    },
+    {
+      "label": "grid b phi=0.20 P=20 r2=0.05",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 20,
+        "prevalence": 0.2,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [3500, 607, 246],
+      "shrinkage": [0.9, 0.613, 0.9],
+      "finalN": 3500,
+      "maxR2cs": 0.63241653,
+      "nagR2": 0.07906182,
+      "eventsDisplay": 700,
+      "epp": 35
+    },
+    {
+      "label": "grid b phi=0.20 P=20 r2=0.10",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 20,
+        "prevalence": 0.2,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1699, 590, 246],
+      "shrinkage": [0.9, 0.76, 0.9],
+      "finalN": 1699,
+      "maxR2cs": 0.63241653,
+      "nagR2": 0.15812364,
+      "eventsDisplay": 340,
+      "epp": 16.99
+    },
+    {
+      "label": "grid b phi=0.20 P=20 r2=0.15",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.15,
+        "parameters": 20,
+        "prevalence": 0.2,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1097, 574, 246],
+      "shrinkage": [0.9, 0.826, 0.9],
+      "finalN": 1097,
+      "maxR2cs": 0.63241653,
+      "nagR2": 0.23718545,
+      "eventsDisplay": 220,
+      "epp": 10.97
+    },
+    {
+      "label": "grid b phi=0.20 P=30 r2=0.05",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 30,
+        "prevalence": 0.2,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [5249, 910, 246],
+      "shrinkage": [0.9, 0.613, 0.9],
+      "finalN": 5249,
+      "maxR2cs": 0.63241653,
+      "nagR2": 0.07906182,
+      "eventsDisplay": 1050,
+      "epp": 34.99
+    },
+    {
+      "label": "grid b phi=0.20 P=30 r2=0.10",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 30,
+        "prevalence": 0.2,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [2548, 885, 246],
+      "shrinkage": [0.9, 0.76, 0.9],
+      "finalN": 2548,
+      "maxR2cs": 0.63241653,
+      "nagR2": 0.15812364,
+      "eventsDisplay": 510,
+      "epp": 16.99
+    },
+    {
+      "label": "grid b phi=0.20 P=30 r2=0.15",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.15,
+        "parameters": 30,
+        "prevalence": 0.2,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1646, 860, 246],
+      "shrinkage": [0.9, 0.826, 0.9],
+      "finalN": 1646,
+      "maxR2cs": 0.63241653,
+      "nagR2": 0.23718545,
+      "eventsDisplay": 330,
+      "epp": 10.97
+    },
+    {
+      "label": "grid b phi=0.10 P=10 r2=0.05",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 10,
+        "prevalence": 0.1,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1750, 403, 139],
+      "shrinkage": [0.9, 0.677, 0.9],
+      "finalN": 1750,
+      "maxR2cs": 0.47804085,
+      "nagR2": 0.10459357,
+      "eventsDisplay": 175,
+      "epp": 17.5
+    },
+    {
+      "label": "grid b phi=0.10 P=10 r2=0.10",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 10,
+        "prevalence": 0.1,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [850, 392, 139],
+      "shrinkage": [0.9, 0.807, 0.9],
+      "finalN": 850,
+      "maxR2cs": 0.47804085,
+      "nagR2": 0.20918714,
+      "eventsDisplay": 85,
+      "epp": 8.5
+    },
+    {
+      "label": "grid b phi=0.10 P=10 r2=0.15",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.15,
+        "parameters": 10,
+        "prevalence": 0.1,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [549, 381, 139],
+      "shrinkage": [0.9, 0.863, 0.9],
+      "finalN": 549,
+      "maxR2cs": 0.47804085,
+      "nagR2": 0.31378072,
+      "eventsDisplay": 55,
+      "epp": 5.49
+    },
+    {
+      "label": "grid b phi=0.10 P=20 r2=0.05",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 20,
+        "prevalence": 0.1,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [3500, 806, 139],
+      "shrinkage": [0.9, 0.677, 0.9],
+      "finalN": 3500,
+      "maxR2cs": 0.47804085,
+      "nagR2": 0.10459357,
+      "eventsDisplay": 350,
+      "epp": 17.5
+    },
+    {
+      "label": "grid b phi=0.10 P=20 r2=0.10",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 20,
+        "prevalence": 0.1,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1699, 784, 139],
+      "shrinkage": [0.9, 0.807, 0.9],
+      "finalN": 1699,
+      "maxR2cs": 0.47804085,
+      "nagR2": 0.20918714,
+      "eventsDisplay": 170,
+      "epp": 8.5
+    },
+    {
+      "label": "grid b phi=0.10 P=20 r2=0.15",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.15,
+        "parameters": 20,
+        "prevalence": 0.1,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1097, 762, 139],
+      "shrinkage": [0.9, 0.863, 0.9],
+      "finalN": 1097,
+      "maxR2cs": 0.47804085,
+      "nagR2": 0.31378072,
+      "eventsDisplay": 110,
+      "epp": 5.48
+    },
+    {
+      "label": "grid b phi=0.10 P=30 r2=0.05",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 30,
+        "prevalence": 0.1,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [5249, 1209, 139],
+      "shrinkage": [0.9, 0.677, 0.9],
+      "finalN": 5249,
+      "maxR2cs": 0.47804085,
+      "nagR2": 0.10459357,
+      "eventsDisplay": 525,
+      "epp": 17.5
+    },
+    {
+      "label": "grid b phi=0.10 P=30 r2=0.10",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 30,
+        "prevalence": 0.1,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [2548, 1176, 139],
+      "shrinkage": [0.9, 0.807, 0.9],
+      "finalN": 2548,
+      "maxR2cs": 0.47804085,
+      "nagR2": 0.20918714,
+      "eventsDisplay": 255,
+      "epp": 8.49
+    },
+    {
+      "label": "grid b phi=0.10 P=30 r2=0.15",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.15,
+        "parameters": 30,
+        "prevalence": 0.1,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1646, 1143, 139],
+      "shrinkage": [0.9, 0.863, 0.9],
+      "finalN": 1646,
+      "maxR2cs": 0.47804085,
+      "nagR2": 0.31378072,
+      "eventsDisplay": 165,
+      "epp": 5.49
+    },
+    {
+      "label": "grid b phi=0.05 P=10 r2=0.05",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 10,
+        "prevalence": 0.05,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1750, 590, 73],
+      "shrinkage": [0.9, 0.753, 0.9],
+      "finalN": 1750,
+      "maxR2cs": 0.32768647,
+      "nagR2": 0.15258488,
+      "eventsDisplay": 88,
+      "epp": 8.75
+    },
+    {
+      "label": "grid b phi=0.05 P=10 r2=0.10",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 10,
+        "prevalence": 0.05,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [850, 575, 73],
+      "shrinkage": [0.9, 0.859, 0.9],
+      "finalN": 850,
+      "maxR2cs": 0.32768647,
+      "nagR2": 0.30516975,
+      "eventsDisplay": 43,
+      "epp": 4.25
+    },
+    {
+      "label": "grid b phi=0.05 P=10 r2=0.15",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.15,
+        "parameters": 10,
+        "prevalence": 0.05,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [549, 559, 73],
+      "shrinkage": [0.9, 0.902, 0.902],
+      "finalN": 559,
+      "maxR2cs": 0.32768647,
+      "nagR2": 0.45775463,
+      "eventsDisplay": 28,
+      "epp": 2.8
+    },
+    {
+      "label": "grid b phi=0.05 P=20 r2=0.05",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 20,
+        "prevalence": 0.05,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [3500, 1180, 73],
+      "shrinkage": [0.9, 0.753, 0.9],
+      "finalN": 3500,
+      "maxR2cs": 0.32768647,
+      "nagR2": 0.15258488,
+      "eventsDisplay": 175,
+      "epp": 8.75
+    },
+    {
+      "label": "grid b phi=0.05 P=20 r2=0.10",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 20,
+        "prevalence": 0.05,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1699, 1149, 73],
+      "shrinkage": [0.9, 0.859, 0.9],
+      "finalN": 1699,
+      "maxR2cs": 0.32768647,
+      "nagR2": 0.30516975,
+      "eventsDisplay": 85,
+      "epp": 4.25
+    },
+    {
+      "label": "grid b phi=0.05 P=20 r2=0.15",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.15,
+        "parameters": 20,
+        "prevalence": 0.05,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1097, 1117, 73],
+      "shrinkage": [0.9, 0.902, 0.902],
+      "finalN": 1117,
+      "maxR2cs": 0.32768647,
+      "nagR2": 0.45775463,
+      "eventsDisplay": 56,
+      "epp": 2.79
+    },
+    {
+      "label": "grid b phi=0.05 P=30 r2=0.05",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 30,
+        "prevalence": 0.05,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [5249, 1770, 73],
+      "shrinkage": [0.9, 0.753, 0.9],
+      "finalN": 5249,
+      "maxR2cs": 0.32768647,
+      "nagR2": 0.15258488,
+      "eventsDisplay": 263,
+      "epp": 8.75
+    },
+    {
+      "label": "grid b phi=0.05 P=30 r2=0.10",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 30,
+        "prevalence": 0.05,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [2548, 1723, 73],
+      "shrinkage": [0.9, 0.859, 0.9],
+      "finalN": 2548,
+      "maxR2cs": 0.32768647,
+      "nagR2": 0.30516975,
+      "eventsDisplay": 128,
+      "epp": 4.25
+    },
+    {
+      "label": "grid b phi=0.05 P=30 r2=0.15",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.15,
+        "parameters": 30,
+        "prevalence": 0.05,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1646, 1675, 73],
+      "shrinkage": [0.9, 0.902, 0.902],
+      "finalN": 1675,
+      "maxR2cs": 0.32768647,
+      "nagR2": 0.45775463,
+      "eventsDisplay": 84,
+      "epp": 2.79
+    },
+    {
+      "label": "grid b phi=0.01 P=10 r2=0.05",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 10,
+        "prevalence": 0.01,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1750, 1835, 16],
+      "shrinkage": [0.9, 0.904, 0.904],
+      "finalN": 1835,
+      "maxR2cs": 0.10595849,
+      "nagR2": 0.47188292,
+      "eventsDisplay": 19,
+      "epp": 1.84
+    },
+    {
+      "label": "grid b phi=0.01 P=10 r2=0.10",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 10,
+        "prevalence": 0.01,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [850, 1787, 16],
+      "shrinkage": [0.9, 0.95, 0.95],
+      "finalN": 1787,
+      "maxR2cs": 0.10595849,
+      "nagR2": 0.94376584,
+      "eventsDisplay": 18,
+      "epp": 1.79
+    },
+    {
+      "label": "grid b phi=0.01 P=20 r2=0.05",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 20,
+        "prevalence": 0.01,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [3500, 3670, 16],
+      "shrinkage": [0.9, 0.904, 0.904],
+      "finalN": 3670,
+      "maxR2cs": 0.10595849,
+      "nagR2": 0.47188292,
+      "eventsDisplay": 37,
+      "epp": 1.84
+    },
+    {
+      "label": "grid b phi=0.01 P=20 r2=0.10",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 20,
+        "prevalence": 0.01,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1699, 3573, 16],
+      "shrinkage": [0.9, 0.95, 0.95],
+      "finalN": 3573,
+      "maxR2cs": 0.10595849,
+      "nagR2": 0.94376584,
+      "eventsDisplay": 36,
+      "epp": 1.79
+    },
+    {
+      "label": "grid b phi=0.01 P=30 r2=0.05",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 30,
+        "prevalence": 0.01,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [5249, 5505, 16],
+      "shrinkage": [0.9, 0.904, 0.904],
+      "finalN": 5505,
+      "maxR2cs": 0.10595849,
+      "nagR2": 0.47188292,
+      "eventsDisplay": 56,
+      "epp": 1.84
+    },
+    {
+      "label": "grid b phi=0.01 P=30 r2=0.10",
+      "type": "binary",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 30,
+        "prevalence": 0.01,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [2548, 5359, 16],
+      "shrinkage": [0.9, 0.95, 0.95],
+      "finalN": 5359,
+      "maxR2cs": 0.10595849,
+      "nagR2": 0.94376584,
+      "eventsDisplay": 54,
+      "epp": 1.79
+    },
+    {
+      "label": "Example 2 — VTE recurrence (P=30)",
+      "type": "survival",
+      "inputs": {
+        "csrsquared": 0.051,
+        "parameters": 30,
+        "rate": 0.065,
+        "timepoint": 2,
+        "meanfup": 2.07,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [5143, 1039, 5143],
+      "shrinkage": [0.9, 0.648, 0.9],
+      "finalN": 5143,
+      "maxR2cs": 0.55472649,
+      "nagR2": 0.0919372,
+      "eventsDisplay": 692,
+      "epp": 23.07
+    },
+    {
+      "label": "Example 2 — VTE recurrence (P=20)",
+      "type": "survival",
+      "inputs": {
+        "csrsquared": 0.051,
+        "parameters": 20,
+        "rate": 0.065,
+        "timepoint": 2,
+        "meanfup": 2.07,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [3429, 693, 3429],
+      "shrinkage": [0.9, 0.648, 0.9],
+      "finalN": 3429,
+      "maxR2cs": 0.55472649,
+      "nagR2": 0.0919372,
+      "eventsDisplay": 462,
+      "epp": 23.07
+    },
+    {
+      "label": "grid s P=10 r2=0.03 rate=0.065",
+      "type": "survival",
+      "inputs": {
+        "csrsquared": 0.03,
+        "parameters": 10,
+        "rate": 0.065,
+        "timepoint": 2,
+        "meanfup": 2.07,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [2950, 351, 2950],
+      "shrinkage": [0.9, 0.52, 0.9],
+      "finalN": 2950,
+      "maxR2cs": 0.55472649,
+      "nagR2": 0.05408071,
+      "eventsDisplay": 397,
+      "epp": 39.69
+    },
+    {
+      "label": "grid s P=10 r2=0.03 rate=0.100",
+      "type": "survival",
+      "inputs": {
+        "csrsquared": 0.03,
+        "parameters": 10,
+        "rate": 0.1,
+        "timepoint": 10,
+        "meanfup": 5,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [2950, 237, 2950],
+      "shrinkage": [0.9, 0.424, 0.9],
+      "finalN": 2950,
+      "maxR2cs": 0.81606028,
+      "nagR2": 0.03676199,
+      "eventsDisplay": 1475,
+      "epp": 147.5
+    },
+    {
+      "label": "grid s P=10 r2=0.03 rate=0.050",
+      "type": "survival",
+      "inputs": {
+        "csrsquared": 0.03,
+        "parameters": 10,
+        "rate": 0.05,
+        "timepoint": 1,
+        "meanfup": 3,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [2950, 335, 2950],
+      "shrinkage": [0.9, 0.508, 0.9],
+      "finalN": 2950,
+      "maxR2cs": 0.58068632,
+      "nagR2": 0.051663,
+      "eventsDisplay": 443,
+      "epp": 44.25
+    },
+    {
+      "label": "grid s P=10 r2=0.05 rate=0.065",
+      "type": "survival",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 10,
+        "rate": 0.065,
+        "timepoint": 2,
+        "meanfup": 2.07,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1750, 347, 1750],
+      "shrinkage": [0.9, 0.643, 0.9],
+      "finalN": 1750,
+      "maxR2cs": 0.55472649,
+      "nagR2": 0.09013451,
+      "eventsDisplay": 236,
+      "epp": 23.55
+    },
+    {
+      "label": "grid s P=10 r2=0.05 rate=0.100",
+      "type": "survival",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 10,
+        "rate": 0.1,
+        "timepoint": 10,
+        "meanfup": 5,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1750, 234, 1750],
+      "shrinkage": [0.9, 0.551, 0.9],
+      "finalN": 1750,
+      "maxR2cs": 0.81606028,
+      "nagR2": 0.06126998,
+      "eventsDisplay": 875,
+      "epp": 87.5
+    },
+    {
+      "label": "grid s P=10 r2=0.05 rate=0.050",
+      "type": "survival",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 10,
+        "rate": 0.05,
+        "timepoint": 1,
+        "meanfup": 3,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1750, 331, 1750],
+      "shrinkage": [0.9, 0.633, 0.9],
+      "finalN": 1750,
+      "maxR2cs": 0.58068632,
+      "nagR2": 0.08610501,
+      "eventsDisplay": 263,
+      "epp": 26.25
+    },
+    {
+      "label": "grid s P=10 r2=0.10 rate=0.065",
+      "type": "survival",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 10,
+        "rate": 0.065,
+        "timepoint": 2,
+        "meanfup": 2.07,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [850, 337, 850],
+      "shrinkage": [0.9, 0.783, 0.9],
+      "finalN": 850,
+      "maxR2cs": 0.55472649,
+      "nagR2": 0.18026902,
+      "eventsDisplay": 115,
+      "epp": 11.44
+    },
+    {
+      "label": "grid s P=10 r2=0.10 rate=0.100",
+      "type": "survival",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 10,
+        "rate": 0.1,
+        "timepoint": 10,
+        "meanfup": 5,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [850, 228, 850],
+      "shrinkage": [0.9, 0.71, 0.9],
+      "finalN": 850,
+      "maxR2cs": 0.81606028,
+      "nagR2": 0.12253997,
+      "eventsDisplay": 425,
+      "epp": 42.5
+    },
+    {
+      "label": "grid s P=10 r2=0.10 rate=0.050",
+      "type": "survival",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 10,
+        "rate": 0.05,
+        "timepoint": 1,
+        "meanfup": 3,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [850, 322, 850],
+      "shrinkage": [0.9, 0.775, 0.9],
+      "finalN": 850,
+      "maxR2cs": 0.58068632,
+      "nagR2": 0.17221002,
+      "eventsDisplay": 128,
+      "epp": 12.75
+    },
+    {
+      "label": "grid s P=20 r2=0.03 rate=0.065",
+      "type": "survival",
+      "inputs": {
+        "csrsquared": 0.03,
+        "parameters": 20,
+        "rate": 0.065,
+        "timepoint": 2,
+        "meanfup": 2.07,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [5900, 701, 5900],
+      "shrinkage": [0.9, 0.52, 0.9],
+      "finalN": 5900,
+      "maxR2cs": 0.55472649,
+      "nagR2": 0.05408071,
+      "eventsDisplay": 794,
+      "epp": 39.69
+    },
+    {
+      "label": "grid s P=20 r2=0.03 rate=0.100",
+      "type": "survival",
+      "inputs": {
+        "csrsquared": 0.03,
+        "parameters": 20,
+        "rate": 0.1,
+        "timepoint": 10,
+        "meanfup": 5,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [5900, 473, 5900],
+      "shrinkage": [0.9, 0.424, 0.9],
+      "finalN": 5900,
+      "maxR2cs": 0.81606028,
+      "nagR2": 0.03676199,
+      "eventsDisplay": 2950,
+      "epp": 147.5
+    },
+    {
+      "label": "grid s P=20 r2=0.03 rate=0.050",
+      "type": "survival",
+      "inputs": {
+        "csrsquared": 0.03,
+        "parameters": 20,
+        "rate": 0.05,
+        "timepoint": 1,
+        "meanfup": 3,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [5900, 669, 5900],
+      "shrinkage": [0.9, 0.508, 0.9],
+      "finalN": 5900,
+      "maxR2cs": 0.58068632,
+      "nagR2": 0.051663,
+      "eventsDisplay": 885,
+      "epp": 44.25
+    },
+    {
+      "label": "grid s P=20 r2=0.05 rate=0.065",
+      "type": "survival",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 20,
+        "rate": 0.065,
+        "timepoint": 2,
+        "meanfup": 2.07,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [3500, 693, 3500],
+      "shrinkage": [0.9, 0.643, 0.9],
+      "finalN": 3500,
+      "maxR2cs": 0.55472649,
+      "nagR2": 0.09013451,
+      "eventsDisplay": 471,
+      "epp": 23.55
+    },
+    {
+      "label": "grid s P=20 r2=0.05 rate=0.100",
+      "type": "survival",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 20,
+        "rate": 0.1,
+        "timepoint": 10,
+        "meanfup": 5,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [3500, 468, 3500],
+      "shrinkage": [0.9, 0.551, 0.9],
+      "finalN": 3500,
+      "maxR2cs": 0.81606028,
+      "nagR2": 0.06126998,
+      "eventsDisplay": 1750,
+      "epp": 87.5
+    },
+    {
+      "label": "grid s P=20 r2=0.05 rate=0.050",
+      "type": "survival",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 20,
+        "rate": 0.05,
+        "timepoint": 1,
+        "meanfup": 3,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [3500, 662, 3500],
+      "shrinkage": [0.9, 0.633, 0.9],
+      "finalN": 3500,
+      "maxR2cs": 0.58068632,
+      "nagR2": 0.08610501,
+      "eventsDisplay": 525,
+      "epp": 26.25
+    },
+    {
+      "label": "grid s P=20 r2=0.10 rate=0.065",
+      "type": "survival",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 20,
+        "rate": 0.065,
+        "timepoint": 2,
+        "meanfup": 2.07,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1699, 674, 1699],
+      "shrinkage": [0.9, 0.783, 0.9],
+      "finalN": 1699,
+      "maxR2cs": 0.55472649,
+      "nagR2": 0.18026902,
+      "eventsDisplay": 229,
+      "epp": 11.43
+    },
+    {
+      "label": "grid s P=20 r2=0.10 rate=0.100",
+      "type": "survival",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 20,
+        "rate": 0.1,
+        "timepoint": 10,
+        "meanfup": 5,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1699, 455, 1699],
+      "shrinkage": [0.9, 0.71, 0.9],
+      "finalN": 1699,
+      "maxR2cs": 0.81606028,
+      "nagR2": 0.12253997,
+      "eventsDisplay": 850,
+      "epp": 42.48
+    },
+    {
+      "label": "grid s P=20 r2=0.10 rate=0.050",
+      "type": "survival",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 20,
+        "rate": 0.05,
+        "timepoint": 1,
+        "meanfup": 3,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [1699, 644, 1699],
+      "shrinkage": [0.9, 0.775, 0.9],
+      "finalN": 1699,
+      "maxR2cs": 0.58068632,
+      "nagR2": 0.17221002,
+      "eventsDisplay": 255,
+      "epp": 12.74
+    },
+    {
+      "label": "grid s P=30 r2=0.03 rate=0.065",
+      "type": "survival",
+      "inputs": {
+        "csrsquared": 0.03,
+        "parameters": 30,
+        "rate": 0.065,
+        "timepoint": 2,
+        "meanfup": 2.07,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [8850, 1051, 8850],
+      "shrinkage": [0.9, 0.52, 0.9],
+      "finalN": 8850,
+      "maxR2cs": 0.55472649,
+      "nagR2": 0.05408071,
+      "eventsDisplay": 1191,
+      "epp": 39.69
+    },
+    {
+      "label": "grid s P=30 r2=0.03 rate=0.100",
+      "type": "survival",
+      "inputs": {
+        "csrsquared": 0.03,
+        "parameters": 30,
+        "rate": 0.1,
+        "timepoint": 10,
+        "meanfup": 5,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [8850, 709, 8850],
+      "shrinkage": [0.9, 0.424, 0.9],
+      "finalN": 8850,
+      "maxR2cs": 0.81606028,
+      "nagR2": 0.03676199,
+      "eventsDisplay": 4425,
+      "epp": 147.5
+    },
+    {
+      "label": "grid s P=30 r2=0.03 rate=0.050",
+      "type": "survival",
+      "inputs": {
+        "csrsquared": 0.03,
+        "parameters": 30,
+        "rate": 0.05,
+        "timepoint": 1,
+        "meanfup": 3,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [8850, 1003, 8850],
+      "shrinkage": [0.9, 0.508, 0.9],
+      "finalN": 8850,
+      "maxR2cs": 0.58068632,
+      "nagR2": 0.051663,
+      "eventsDisplay": 1328,
+      "epp": 44.25
+    },
+    {
+      "label": "grid s P=30 r2=0.05 rate=0.065",
+      "type": "survival",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 30,
+        "rate": 0.065,
+        "timepoint": 2,
+        "meanfup": 2.07,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [5249, 1040, 5249],
+      "shrinkage": [0.9, 0.643, 0.9],
+      "finalN": 5249,
+      "maxR2cs": 0.55472649,
+      "nagR2": 0.09013451,
+      "eventsDisplay": 707,
+      "epp": 23.54
+    },
+    {
+      "label": "grid s P=30 r2=0.05 rate=0.100",
+      "type": "survival",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 30,
+        "rate": 0.1,
+        "timepoint": 10,
+        "meanfup": 5,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [5249, 702, 5249],
+      "shrinkage": [0.9, 0.551, 0.9],
+      "finalN": 5249,
+      "maxR2cs": 0.81606028,
+      "nagR2": 0.06126998,
+      "eventsDisplay": 2625,
+      "epp": 87.48
+    },
+    {
+      "label": "grid s P=30 r2=0.05 rate=0.050",
+      "type": "survival",
+      "inputs": {
+        "csrsquared": 0.05,
+        "parameters": 30,
+        "rate": 0.05,
+        "timepoint": 1,
+        "meanfup": 3,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [5249, 992, 5249],
+      "shrinkage": [0.9, 0.633, 0.9],
+      "finalN": 5249,
+      "maxR2cs": 0.58068632,
+      "nagR2": 0.08610501,
+      "eventsDisplay": 788,
+      "epp": 26.24
+    },
+    {
+      "label": "grid s P=30 r2=0.10 rate=0.065",
+      "type": "survival",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 30,
+        "rate": 0.065,
+        "timepoint": 2,
+        "meanfup": 2.07,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [2548, 1011, 2548],
+      "shrinkage": [0.9, 0.783, 0.9],
+      "finalN": 2548,
+      "maxR2cs": 0.55472649,
+      "nagR2": 0.18026902,
+      "eventsDisplay": 343,
+      "epp": 11.43
+    },
+    {
+      "label": "grid s P=30 r2=0.10 rate=0.100",
+      "type": "survival",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 30,
+        "rate": 0.1,
+        "timepoint": 10,
+        "meanfup": 5,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [2548, 683, 2548],
+      "shrinkage": [0.9, 0.71, 0.9],
+      "finalN": 2548,
+      "maxR2cs": 0.81606028,
+      "nagR2": 0.12253997,
+      "eventsDisplay": 1274,
+      "epp": 42.47
+    },
+    {
+      "label": "grid s P=30 r2=0.10 rate=0.050",
+      "type": "survival",
+      "inputs": {
+        "csrsquared": 0.1,
+        "parameters": 30,
+        "rate": 0.05,
+        "timepoint": 1,
+        "meanfup": 3,
+        "shrinkage": 0.9
+      },
+      "criteriaN": [2548, 966, 2548],
+      "shrinkage": [0.9, 0.775, 0.9],
+      "finalN": 2548,
+      "maxR2cs": 0.58068632,
+      "nagR2": 0.17221002,
+      "eventsDisplay": 383,
+      "epp": 12.74
+    },
+    {
+      "label": "Example 3 — fat-free mass",
+      "type": "continuous",
+      "inputs": {
+        "rsquared": 0.9,
+        "parameters": 20,
+        "intercept": 26.7,
+        "sd": 8.7,
+        "shrinkage": 0.9,
+        "mmoe": 1.1
+      },
+      "criteriaN": [68, 41, 254, 254],
+      "shrinkage": [0.9, 0.853, 0.97, 0.97],
+      "finalN": 254,
+      "spp": 12.7
+    },
+    {
+      "label": "grid c P=10 r2=0.30",
+      "type": "continuous",
+      "inputs": {
+        "rsquared": 0.3,
+        "parameters": 10,
+        "intercept": 26.7,
+        "sd": 8.7,
+        "shrinkage": 0.9,
+        "mmoe": 1.1
+      },
+      "criteriaN": [196, 141, 244, 244],
+      "shrinkage": [0.9, 0.868, 0.918, 0.918],
+      "finalN": 244,
+      "spp": 24.4
+    },
+    {
+      "label": "grid c P=10 r2=0.50",
+      "type": "continuous",
+      "inputs": {
+        "rsquared": 0.5,
+        "parameters": 10,
+        "intercept": 26.7,
+        "sd": 8.7,
+        "shrinkage": 0.9,
+        "mmoe": 1.1
+      },
+      "criteriaN": [101, 101, 244, 244],
+      "shrinkage": [0.901, 0.901, 0.955, 0.955],
+      "finalN": 244,
+      "spp": 24.4
+    },
+    {
+      "label": "grid c P=10 r2=0.70",
+      "type": "continuous",
+      "inputs": {
+        "rsquared": 0.7,
+        "parameters": 10,
+        "intercept": 26.7,
+        "sd": 8.7,
+        "shrinkage": 0.9,
+        "mmoe": 1.1
+      },
+      "criteriaN": [58, 62, 244, 244],
+      "shrinkage": [0.901, 0.907, 0.974, 0.974],
+      "finalN": 244,
+      "spp": 24.4
+    },
+    {
+      "label": "grid c P=10 r2=0.90",
+      "type": "continuous",
+      "inputs": {
+        "rsquared": 0.9,
+        "parameters": 10,
+        "intercept": 26.7,
+        "sd": 8.7,
+        "shrinkage": 0.9,
+        "mmoe": 1.1
+      },
+      "criteriaN": [30, 21, 244, 244],
+      "shrinkage": [0.902, 0.873, 0.986, 0.986],
+      "finalN": 244,
+      "spp": 24.4
+    },
+    {
+      "label": "grid c P=20 r2=0.30",
+      "type": "continuous",
+      "inputs": {
+        "rsquared": 0.3,
+        "parameters": 20,
+        "intercept": 26.7,
+        "sd": 8.7,
+        "shrinkage": 0.9,
+        "mmoe": 1.1
+      },
+      "criteriaN": [448, 281, 254, 448],
+      "shrinkage": [0.9, 0.851, 0.839, 0.9],
+      "finalN": 448,
+      "spp": 22.4
+    },
+    {
+      "label": "grid c P=20 r2=0.50",
+      "type": "continuous",
+      "inputs": {
+        "rsquared": 0.5,
+        "parameters": 20,
+        "intercept": 26.7,
+        "sd": 8.7,
+        "shrinkage": 0.9,
+        "mmoe": 1.1
+      },
+      "criteriaN": [230, 201, 254, 254],
+      "shrinkage": [0.9, 0.888, 0.909, 0.909],
+      "finalN": 254,
+      "spp": 12.7
+    },
+    {
+      "label": "grid c P=20 r2=0.70",
+      "type": "continuous",
+      "inputs": {
+        "rsquared": 0.7,
+        "parameters": 20,
+        "intercept": 26.7,
+        "sd": 8.7,
+        "shrinkage": 0.9,
+        "mmoe": 1.1
+      },
+      "criteriaN": [132, 122, 254, 254],
+      "shrinkage": [0.9, 0.893, 0.945, 0.945],
+      "finalN": 254,
+      "spp": 12.7
+    },
+    {
+      "label": "grid c P=20 r2=0.90",
+      "type": "continuous",
+      "inputs": {
+        "rsquared": 0.9,
+        "parameters": 20,
+        "intercept": 26.7,
+        "sd": 8.7,
+        "shrinkage": 0.9,
+        "mmoe": 1.1
+      },
+      "criteriaN": [68, 41, 254, 254],
+      "shrinkage": [0.9, 0.853, 0.97, 0.97],
+      "finalN": 254,
+      "spp": 12.7
+    },
+    {
+      "label": "grid c P=30 r2=0.30",
+      "type": "continuous",
+      "inputs": {
+        "rsquared": 0.3,
+        "parameters": 30,
+        "intercept": 26.7,
+        "sd": 8.7,
+        "shrinkage": 0.9,
+        "mmoe": 1.1
+      },
+      "criteriaN": [699, 421, 264, 699],
+      "shrinkage": [0.9, 0.846, 0.778, 0.9],
+      "finalN": 699,
+      "spp": 23.3
+    },
+    {
+      "label": "grid c P=30 r2=0.50",
+      "type": "continuous",
+      "inputs": {
+        "rsquared": 0.5,
+        "parameters": 30,
+        "intercept": 26.7,
+        "sd": 8.7,
+        "shrinkage": 0.9,
+        "mmoe": 1.1
+      },
+      "criteriaN": [359, 301, 264, 359],
+      "shrinkage": [0.9, 0.884, 0.87, 0.9],
+      "finalN": 359,
+      "spp": 11.97
+    },
+    {
+      "label": "grid c P=30 r2=0.70",
+      "type": "continuous",
+      "inputs": {
+        "rsquared": 0.7,
+        "parameters": 30,
+        "intercept": 26.7,
+        "sd": 8.7,
+        "shrinkage": 0.9,
+        "mmoe": 1.1
+      },
+      "criteriaN": [206, 182, 264, 264],
+      "shrinkage": [0.9, 0.889, 0.92, 0.92],
+      "finalN": 264,
+      "spp": 8.8
+    },
+    {
+      "label": "grid c P=30 r2=0.90",
+      "type": "continuous",
+      "inputs": {
+        "rsquared": 0.9,
+        "parameters": 30,
+        "intercept": 26.7,
+        "sd": 8.7,
+        "shrinkage": 0.9,
+        "mmoe": 1.1
+      },
+      "criteriaN": [107, 61, 264, 264],
+      "shrinkage": [0.901, 0.847, 0.956, 0.956],
+      "finalN": 264,
+      "spp": 8.8
+    }
+  ]
+}

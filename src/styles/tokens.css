@@ -1,0 +1,88 @@
+/*
+ * Design tokens — warm "editorial textbook" EdTech palette, a sibling of the
+ * Decision Curve Analysis explainer. Same warm paper and structure; a deep
+ * PINE/TEAL accent distinguishes this site from DCA's burnt-orange.
+ * Light theme only for MVP (dark is Stretch). All text/background pairings are
+ * checked for WCAG 2.2 AA (>= 4.5:1 body, >= 3:1 large text & UI).
+ */
+:root {
+  /* Surfaces */
+  --color-bg: #fbf7f0; /* warm paper */
+  --color-bg-sunken: #f1ece2;
+  --color-surface: #ffffff;
+  --color-surface-2: #fdfbf7;
+
+  /* Ink */
+  --color-text: #26201c; /* warm near-black, ~13:1 on paper */
+  --color-text-muted: #5c5048; /* ~6.4:1 on paper */
+  --color-text-faint: #7a6e64;
+
+  /* Accent (deep pine/teal) — emphasis, links, primary action */
+  --color-accent: #15706b; /* ~5.5:1 on paper, AA for text */
+  --color-accent-strong: #0f5b57; /* ~7.4:1 on paper */
+  --color-accent-tint: #dceeeb;
+
+  /* Lines / structure */
+  --color-border: #e6ddd0;
+  --color-border-strong: #d6c9b6;
+
+  /* Focus ring — high-contrast warm orange, distinct from the teal palette */
+  --color-focus: #b4530a;
+
+  /* Status */
+  --color-good: #2f6d4f;
+  --color-good-tint: #e3f0e8;
+  --color-warn: #9a5b00;
+  --color-warn-tint: #f6e7d0;
+
+  /* Chart series — distinguishable in greyscale via luminance + fill pattern.
+     The "binding" criterion is the hero's core teaching signal: it is the pine
+     accent AND carries a hatch pattern + text label, never colour alone. */
+  --c-binding: #15706b; /* pine — the criterion that drives required N */
+  --c-nonbinding: #b9ab98; /* warm taupe — criteria that don't bind */
+  --c-na: #ccc3b6; /* muted — N/A criteria (e.g. MAPE when P>30) */
+  --c-curve-a: #1b4965; /* deep blue, solid */
+  --c-curve-b: #a23522; /* brick red, dashed */
+  --c-curve-c: #6a4a8f; /* plum, dotted */
+  --c-grid: #ece3d6;
+  --c-axis: #6b5f54;
+
+  /* Typography */
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino,
+    "Book Antiqua", Georgia, "Times New Roman", serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas,
+    monospace;
+
+  --text-xs: 0.78rem;
+  --text-sm: 0.9rem;
+  --text-base: 1.05rem;
+  --text-lg: 1.2rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 2.75rem;
+  --leading: 1.65;
+
+  /* Spacing scale (8px base) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  /* Radii + shadows */
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 1px 2px rgba(40, 30, 20, 0.06);
+  --shadow: 0 2px 8px rgba(40, 30, 20, 0.08), 0 1px 2px rgba(40, 30, 20, 0.05);
+  --shadow-lg: 0 12px 32px rgba(40, 30, 20, 0.12),
+    0 4px 10px rgba(40, 30, 20, 0.07);
+
+  --container: 56rem;
+  --container-wide: 72rem;
+}

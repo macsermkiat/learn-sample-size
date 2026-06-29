@@ -1,0 +1,152 @@
+/* ---------- Chart primitive (hand-rolled SVG; React owns DOM, D3 does math) ---------- */
+.chart {
+  margin: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--space-4);
+}
+.chart__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.axis__line {
+  stroke: var(--c-axis);
+  stroke-width: 1.5;
+}
+.axis__tick {
+  stroke: var(--c-axis);
+  stroke-width: 1;
+}
+.axis__tick-label {
+  fill: var(--color-text-muted);
+  font-size: 13.5px;
+  font-family: var(--font-sans);
+}
+.axis__title {
+  fill: var(--color-text);
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--font-sans);
+}
+.chart__grid {
+  stroke: var(--c-grid);
+  stroke-width: 1;
+}
+
+/* ---------- Take-the-max bars ---------- */
+.bars__bar {
+  fill: var(--c-nonbinding);
+}
+.bars__bar--binding {
+  fill: var(--c-binding);
+}
+.bars__bar--na {
+  fill: var(--c-na);
+}
+.bars__value {
+  fill: var(--color-text);
+  font-size: 13px;
+  font-weight: 700;
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+}
+.bars__label {
+  fill: var(--color-text-muted);
+  font-size: 12.5px;
+  font-family: var(--font-sans);
+}
+.bars__label--binding {
+  fill: var(--color-accent-strong);
+  font-weight: 700;
+}
+/* "binding" hatch overlay — a non-colour cue layered on the binding bar. */
+.bars__hatch {
+  stroke: var(--color-surface);
+  stroke-width: 1.4;
+  opacity: 0.5;
+}
+
+/* ---------- Curve lines (N-vs-P, EPP-vs-prevalence) ---------- */
+.chart__line {
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.series--a {
+  stroke: var(--c-curve-a);
+}
+.series--b {
+  stroke: var(--c-curve-b);
+  stroke-dasharray: 7 5;
+}
+.series--c {
+  stroke: var(--c-curve-c);
+  stroke-dasharray: 2 5;
+}
+.chart__end-label {
+  font-size: 13px;
+  font-weight: 700;
+  font-family: var(--font-sans);
+}
+.chart__end-label.series--a {
+  fill: var(--c-curve-a);
+  stroke: none;
+}
+.chart__end-label.series--b {
+  fill: var(--c-curve-b);
+  stroke: none;
+}
+.chart__end-label.series--c {
+  fill: var(--c-curve-c);
+  stroke: none;
+}
+.chart__marker {
+  stroke: var(--color-text);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 3;
+  opacity: 0.55;
+}
+.chart__dot {
+  stroke: #fff;
+  stroke-width: 1.5;
+}
+
+.chart__caption {
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  max-width: 62ch;
+}
+
+/* ---------- Data-table alternative (every chart ships one) ---------- */
+.chart__table {
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+}
+.chart__table summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--color-accent-strong);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.chart__table table {
+  border-collapse: collapse;
+  margin-top: var(--space-3);
+  width: 100%;
+}
+.chart__table th,
+.chart__table td {
+  border: 1px solid var(--color-border);
+  padding: var(--space-1) var(--space-3);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.chart__table th[scope="col"] {
+  background: var(--color-bg-sunken);
+}
