@@ -31,8 +31,13 @@ const MAPE_MAX_PARAMS = 30; // van Smeden formula applies for P <= 30
 
 /**
  * Sample size to develop a binary prediction model (Riley 2020, Box 1 B1–B4).
- * Final N = the largest across the four criteria (take the max). EPP is
- * type-specific: expected events = n·φ.
+ * Final N = the largest across the criteria that compete (take the max). B2
+ * (MAPE) is computed and reported but does NOT compete: pmsampsize — the
+ * authors' reference implementation — does not implement it, it targets a
+ * different quantity (mean absolute error of individual risks against a MAPE of
+ * 0.05), and its formula carries no R²cs term, so folding it in would freeze the
+ * final N once the anticipated model strength passes it. See
+ * docs/pmsampsize-discrepancy.md. EPP is type-specific: expected events = n·φ.
  */
 export function binarySampleSize(input: BinaryInput): SampleSizeResult {
   const { parameters: P, r2cs, prevalence: phi } = input;
@@ -57,20 +62,26 @@ export function binarySampleSize(input: BinaryInput): SampleSizeResult {
   const b4 = nFromOptimism(P, r2cs, maxR2cs);
 
   const criteria: Criterion[] = [
-    { id: "B1", label: "Precise overall risk", n: b1 },
+    { id: "B1", label: "Precise overall risk", n: b1, inMax: true, pmsampsizeCriteria: 3 },
     {
       id: "B2",
       label: "Small prediction error (MAPE)",
       n: b2,
+      inMax: false,
       note:
         "Ported from van Smeden (2019) / Riley Fig 2 — not computed by " +
-        "pmsampsize; applies only for 30 or fewer candidate parameters.",
+        "pmsampsize; applies only for 30 or fewer candidate parameters. It " +
+        "targets a mean absolute error of 0.05 in the individual risk " +
+        "estimates, a different target from the other three, so it is reported " +
+        "for context rather than folded into the take-the-max.",
     },
-    { id: "B3", label: "Required shrinkage", n: b3 },
-    { id: "B4", label: "Small optimism", n: b4 },
+    { id: "B3", label: "Required shrinkage", n: b3, inMax: true, pmsampsizeCriteria: 1 },
+    { id: "B4", label: "Small optimism", n: b4, inMax: true, pmsampsizeCriteria: 2 },
   ];
 
-  const { n, bindingId } = takeMax(criteria);
+  // Filter at the call site: takeMax stays a dumb maximum, with no criterion
+  // semantics baked into it.
+  const { n, bindingId } = takeMax(criteria.filter((c) => c.inMax));
   const events = Math.ceil(n * phi);
   const ratio = round2((n * phi) / P);
 

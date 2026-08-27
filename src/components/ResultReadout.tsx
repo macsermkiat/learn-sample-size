@@ -2,10 +2,13 @@ import { useDebouncedValue } from "../hooks/useDebouncedValue";
 import type { SampleSizeResult } from "../engine";
 
 // The ONE payload: the binding required N, foregrounded. Carries the binding
-// criterion in TEXT (not colour), expected events / EPP (or SPP), and — when the
-// binding criterion's formula is ported/approximate — discloses that inline, at
-// the moment it binds (the binding-criterion-formula contract). A debounced
+// criterion in TEXT (not colour) and expected events / EPP (or SPP). A debounced
 // aria-live region announces the SETTLED result to screen readers.
+//
+// No provenance disclosure here: no criterion carrying a ported/approximate note
+// can be the binding one — B2 sits outside the take-the-max, and survival's T1
+// only mirrors max(T2, T3). Those notes ride on the criterion's own row in the
+// criteria table instead.
 export default function ResultReadout({ result }: { result: SampleSizeResult }) {
   const settled = useDebouncedValue(result, 300);
   const binding = result.criteria.find((c) => c.id === result.bindingId);
@@ -48,12 +51,6 @@ export default function ResultReadout({ result }: { result: SampleSizeResult }) 
           </div>
         )}
       </dl>
-
-      {binding?.note && (
-        <p className="payload__disclosure">
-          <strong>Note on the binding criterion:</strong> {binding.note}
-        </p>
-      )}
 
       <p className="visually-hidden" aria-live="polite" aria-atomic="true">
         {liveText}

@@ -16,7 +16,21 @@ export interface Criterion {
    */
   n: number | null;
   /**
-   * Disclosed at the moment this criterion binds: set when the formula is
+   * Does this criterion compete in the take-the-max? False for a criterion that
+   * is computed and shown but targets a different quantity, so folding it into
+   * the maximum would answer a different question (B2 MAPE, which pmsampsize
+   * does not implement). Required, not optional, so every construction site has
+   * to decide.
+   */
+  inMax: boolean;
+  /**
+   * The number pmsampsize prints for this criterion ("Criteria 1/2/3"). The app
+   * and the package number the criteria differently AND in a different order, so
+   * the table shows both. Absent for a criterion the package does not compute.
+   */
+  pmsampsizeCriteria?: number;
+  /**
+   * Disclosed where this criterion is reported: set when the formula is
    * ported/approximate/externally sourced (B2 MAPE via van Smeden's BeyondEPV).
    */
   note?: string;
@@ -29,7 +43,7 @@ export interface SampleSizeResult {
   type: OutcomeType;
   /** All Box-1 criteria for this outcome type, in display order. */
   criteria: readonly Criterion[];
-  /** Final required N = the largest N across the defined criteria. */
+  /** Final required N = the largest N across the defined criteria with `inMax`. */
   n: number;
   /** The id of the binding criterion (the one whose N equals the final N). */
   bindingId: string;

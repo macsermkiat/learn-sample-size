@@ -12,6 +12,7 @@ const bars: BarInput[] = ex1.criteria.map((c) => ({
   label: c.label,
   n: c.n,
   binding: c.id === ex1.bindingId,
+  inMax: c.inMax,
 }));
 
 function Criterion({
@@ -135,7 +136,7 @@ export default function Criteria() {
       <Formula name="takeMax" />
       <TakeMaxBars
         data={bars}
-        caption="Pre-eclampsia (Example 1): the four criteria. The required shrinkage (B3) is the tallest, so N = 5249. The events-per-variable criterion (B1) alone would have allowed just 73."
+        caption="Pre-eclampsia (Example 1): the three competing criteria. The required shrinkage (B3) is the tallest, so N = 5249. The events-per-variable criterion (B1) alone would have allowed just 73. The dashed line is the MAPE criterion, reported but not part of the maximum."
       />
 
       <h2>Where R²cs comes from</h2>

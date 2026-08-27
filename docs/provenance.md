@@ -43,7 +43,8 @@ Symbols: φ = outcome proportion (binary) / event rate per person-year
 (survival); P = candidate predictor parameters; R²cs = Cox-Snell R²; S = uniform
 shrinkage target (default 0.9); δ = margin of error (0.05, hard-coded in the
 package). Each criterion's N is `ceil`'d to an integer. **Final N = max across
-the type's criteria** (take-the-max), after dropping N/A criteria.
+the type's competing criteria** (take-the-max), after dropping N/A criteria and
+criteria that do not compete (B2 MAPE — see below).
 
 ### Binary (`pmsampsize_bin`) — criteria map to Box 1 B1–B4
 
@@ -116,8 +117,17 @@ n = ceil( exp( (−0.508 + 0.259·ln(φ) + 0.504·ln(P) − ln(0.05)) / 0.544 ) 
 ```
 
 (target MAPE = 0.05.) **Validated against both pinned anchors:** P=10, φ=0.3 →
-461 (EPP 13.8); P=30, φ=0.05 → 544. Disclosed in-app as a ported approximation
-at the moment it binds. Survival/continuous have no MAPE step.
+461 (EPP 13.8); P=30, φ=0.05 → 544. Survival/continuous have no MAPE step.
+
+**B2 is excluded from the take-the-max** (`inMax: false` on the criterion). The
+package is the reference implementation and does not compute it; B2 targets a
+different quantity (mean absolute error of the individual risk estimates against
+a MAPE of 0.05, not overfitting in this model); and `nFromMape` takes no R²cs, so
+inside the maximum it would freeze the final N once anticipated model strength
+passed it. It is still computed and still shown — below the final-N row in the
+criteria table and as a dashed reference line in the take-the-max chart — with
+its ported-formula note on its own row. Full write-up:
+`docs/pmsampsize-discrepancy.md`.
 
 ### C-statistic → R²cs — disclosed approximation
 

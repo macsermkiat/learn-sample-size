@@ -62,6 +62,25 @@
   fill: var(--color-accent-strong);
   font-weight: 700;
 }
+/* Reference line for a criterion that does not compete in the take-the-max:
+   dashed and unfilled, so it never reads as a bar. */
+.bars__ref-line {
+  stroke: var(--color-text-muted);
+  stroke-width: 1.6;
+  stroke-dasharray: 6 4;
+}
+.bars__ref-label {
+  fill: var(--color-text);
+  font-size: 12px;
+  font-family: var(--font-sans);
+  /* The line can fall anywhere on the scale, so the label may cross a bar.
+     Stroke-first paints a surface-coloured halo, so the text keeps its contrast
+     over a bar as well as over the plot background. */
+  stroke: var(--color-surface);
+  stroke-width: 4;
+  stroke-linejoin: round;
+  paint-order: stroke fill;
+}
 /* "binding" hatch overlay — a non-colour cue layered on the binding bar. */
 .bars__hatch {
   stroke: var(--color-surface);
@@ -113,6 +132,28 @@
 .chart__dot {
   stroke: #fff;
   stroke-width: 1.5;
+}
+
+/* Legend for the reference lines: real HTML text, so it scales with the user's
+   font size and never has to be drawn across a bar. */
+.chart__legend {
+  margin: var(--space-3) 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+.chart__legend-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+.chart__legend-dash {
+  flex: none;
+  width: 22px;
+  /* Line up with the first line of the label, not the middle of the block. */
+  margin-top: 0.7em;
+  border-top: 2px dashed var(--color-text-muted);
 }
 
 .chart__caption {

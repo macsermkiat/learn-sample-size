@@ -12,7 +12,8 @@ import { round2 } from "./shared";
 // pmsampsize does NOT compute the MAPE criterion (B2), so the package's "final
 // N" is max(shrinkage, optimism, risk). We verify the engine reproduces those
 // three criteria and that their max equals the package's final N. The engine's
-// own take-the-max additionally includes B2, which is checked in binary.test.ts.
+// own take-the-max excludes B2 on the same grounds, so the app's headline N is
+// held to the standard this battery checks (see binary.test.ts).
 
 interface Fixture {
   label: string;

@@ -24,6 +24,12 @@ export interface BarInput {
   /** Required N, or null for an N/A criterion (rendered as a stub + "n/a"). */
   n: number | null;
   binding: boolean;
+  /**
+   * Does this criterion compete in the take-the-max? A criterion that does not
+   * is laid out as a dashed REFERENCE LINE, never as a bar: the chart's whole
+   * argument is "the tallest bar wins", which a taller non-binding bar destroys.
+   */
+  inMax: boolean;
 }
 
 export interface BarRect {
@@ -40,8 +46,19 @@ export interface BarRect {
   na: boolean;
 }
 
+/** A criterion drawn as a horizontal reference line rather than a bar. */
+export interface RefLine {
+  id: string;
+  label: string;
+  n: number;
+  /** Pixel y of the line inside the plot area. */
+  y: number;
+}
+
 export interface BarsGeometry {
   bars: BarRect[];
+  /** Non-competing criteria (`inMax: false`), positioned on the same y scale. */
+  references: RefLine[];
   innerWidth: number;
   innerHeight: number;
   y: ScaleLinear<number, number>;
@@ -49,25 +66,34 @@ export interface BarsGeometry {
 }
 
 /**
- * Lay out the "take-the-max" bars. The y-axis spans 0..maxN (the largest
- * defined criterion). N/A criteria get a zero-height bar at the baseline so the
- * category still appears (no silent gap) without poisoning the scale.
+ * Lay out the "take-the-max" bars. Only competing criteria get a bar, so the
+ * tallest bar is always the binding one; a non-competing criterion becomes a
+ * reference line. The y-axis spans 0..maxN across bars AND reference lines, so a
+ * reference above every bar still lands on the canvas. N/A criteria get a
+ * zero-height bar at the baseline so the category still appears (no silent gap)
+ * without poisoning the scale; an N/A reference line has nowhere to sit and is
+ * dropped.
  */
 export function barGeometry(data: readonly BarInput[], dims: ChartDims): BarsGeometry {
   const innerWidth = dims.width - dims.margin.left - dims.margin.right;
   const innerHeight = dims.height - dims.margin.top - dims.margin.bottom;
 
-  const defined = data.filter((d) => d.n !== null).map((d) => d.n as number);
+  const barData = data.filter((d) => d.inMax);
+  const refData = data.filter((d) => !d.inMax && d.n !== null);
+
+  const defined = [...barData, ...refData]
+    .filter((d) => d.n !== null)
+    .map((d) => d.n as number);
   const maxN = defined.length > 0 ? Math.max(...defined) : 1;
 
   const x = scaleBand<string>()
-    .domain(data.map((d) => d.id))
+    .domain(barData.map((d) => d.id))
     .range([0, innerWidth])
     .padding(0.28);
   // Headroom so the value label above the tallest bar is not clipped.
   const y = scaleLinear().domain([0, maxN * 1.12]).range([innerHeight, 0]);
 
-  const bars: BarRect[] = data.map((d) => {
+  const bars: BarRect[] = barData.map((d) => {
     const na = d.n === null;
     const value = na ? 0 : (d.n as number);
     const yTop = y(value);
@@ -85,7 +111,14 @@ export function barGeometry(data: readonly BarInput[], dims: ChartDims): BarsGeo
     };
   });
 
-  return { bars, innerWidth, innerHeight, y, maxN };
+  const references: RefLine[] = refData.map((d) => ({
+    id: d.id,
+    label: d.label,
+    n: d.n as number,
+    y: y(d.n as number),
+  }));
+
+  return { bars, references, innerWidth, innerHeight, y, maxN };
 }
 
 export interface Tick {
