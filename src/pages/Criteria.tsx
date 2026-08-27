@@ -129,9 +129,11 @@ export default function Criteria() {
 
       <h2>Take the largest</h2>
       <p>
-        The final required sample size is simply the maximum across the criteria. Any
-        criterion that does not apply (for example MAPE when P &gt; 30) is dropped, not
-        counted as zero.
+        The final required sample size is simply the maximum across the criteria that
+        compete. Any criterion that does not apply (for example MAPE when P &gt; 30) is
+        dropped, not counted as zero. The MAPE criterion (B2) is reported alongside the
+        others but stays outside the maximum: it targets a different quantity, and{" "}
+        <code>pmsampsize</code> does not compute it.
       </p>
       <Formula name="takeMax" />
       <TakeMaxBars

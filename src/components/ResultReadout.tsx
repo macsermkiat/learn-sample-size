@@ -30,7 +30,7 @@ export default function ResultReadout({ result }: { result: SampleSizeResult }) 
       <p className="payload__n">{result.n.toLocaleString()}</p>
       <p className="payload__binding">
         Driven by <b>{bindingLabel}</b> — the binding criterion. The final N is the
-        largest across all criteria (take the max).
+        largest across the criteria that compete (take the max).
       </p>
 
       <dl className="payload__sub">

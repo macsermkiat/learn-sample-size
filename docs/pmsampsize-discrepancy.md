@@ -2,6 +2,14 @@
 
 Date: 2026-08-27
 
+> **Status: acted on.** This is the analysis as it stood before the fix, kept as
+> the record of why the change was made. The recommendation under "Which number
+> to report" was adopted: the MAPE criterion no longer sits inside the
+> take-the-max, so this run now reports 668 (667 if you enter the package's own
+> R-squared — difference 2 below is still open). The workaround under "Making the
+> two agree today" is no longer needed for the MAPE row. Everything else below
+> describes the behaviour that prompted the change.
+
 The run in question:
 
 ```
