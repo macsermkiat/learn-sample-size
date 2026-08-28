@@ -60,6 +60,10 @@ describe("/calculator binary tab", () => {
     expect(finalIdx).toBeGreaterThan(-1);
     expect(b2Idx).toBeGreaterThan(finalIdx);
     expect(within(rows[b2Idx]).queryByText("binding")).toBeNull();
+    // The subhead heads the rows below it in its own tbody, so it scopes to the
+    // row group; scope="colgroup" would announce it as a column header.
+    const subhead = criteriaTable(container).querySelector(".criteria__subhead")!;
+    expect(subhead.getAttribute("scope")).toBe("rowgroup");
     // The van Smeden disclosure moved here from the payload, where a criterion
     // outside the maximum can no longer bind.
     expect(rows[b2Idx].textContent).toMatch(/van Smeden/i);

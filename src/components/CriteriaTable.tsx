@@ -69,7 +69,7 @@ export default function CriteriaTable({ result }: { result: SampleSizeResult }) 
         {context.length > 0 && (
           <tbody className="criteria__context">
             <tr>
-              <th scope="colgroup" colSpan={3} className="criteria__subhead">
+              <th scope="rowgroup" colSpan={3} className="criteria__subhead">
                 Shown for context, not part of the maximum
               </th>
             </tr>
