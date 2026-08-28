@@ -24,6 +24,7 @@ export default function Calculator() {
       label: c.label,
       n: c.n,
       binding: c.id === result.bindingId,
+      inMax: c.inMax,
     })) ?? [];
 
   return (
@@ -65,7 +66,7 @@ export default function Calculator() {
           {result && (
             <TakeMaxBars
               data={bars}
-              caption="Required N for each criterion. The final sample size is the tallest bar — take the max. The binding bar is marked with a hatch and a 'binding' label."
+              caption="Required N for each competing criterion. The final sample size is the tallest bar — take the max. The binding bar is marked with a hatch and a 'binding' label. A dashed line marks a criterion that is reported but does not compete in the maximum."
             />
           )}
           <MatchesThePaper type={state.type} />

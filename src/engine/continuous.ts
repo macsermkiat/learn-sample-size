@@ -79,10 +79,10 @@ export function continuousSampleSize(input: ContinuousInput): SampleSizeResult {
   // Display order C1–C4 (Box 1). Final N = the largest (take the max). The
   // intercept solver starts at max(others), so the package's final N = C1.
   const criteria: Criterion[] = [
-    { id: "C1", label: "Intercept precision", n: nIntercept },
-    { id: "C2", label: "Residual-SD precision", n: nResid },
-    { id: "C3", label: "Required shrinkage", n: nShrink },
-    { id: "C4", label: "Small optimism", n: nOptim },
+    { id: "C1", label: "Intercept precision", n: nIntercept, inMax: true, pmsampsizeCriteria: 4 },
+    { id: "C2", label: "Residual-SD precision", n: nResid, inMax: true, pmsampsizeCriteria: 3 },
+    { id: "C3", label: "Required shrinkage", n: nShrink, inMax: true, pmsampsizeCriteria: 1 },
+    { id: "C4", label: "Small optimism", n: nOptim, inMax: true, pmsampsizeCriteria: 2 },
   ];
 
   const n = Math.max(nIntercept, nResid, nShrink, nOptim);

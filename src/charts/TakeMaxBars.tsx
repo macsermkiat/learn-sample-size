@@ -1,9 +1,19 @@
 import { barGeometry, type BarInput, type ChartDims } from "./geometry";
 import { YAxis } from "./Axis";
 
-// "Take the max" bar chart: one bar per criterion, the binding (tallest) one
-// emphasised by COLOUR + a hatch overlay + a bold label + an explicit "binding"
-// tag — never colour alone. Ships a data-table alternative for screen readers.
+// "Take the max" bar chart: one bar per COMPETING criterion, the binding
+// (tallest) one emphasised by COLOUR + a hatch overlay + a bold label + an
+// explicit "binding" tag — never colour alone. Ships a data-table alternative
+// for screen readers.
+//
+// A criterion that does not compete in the maximum (`inMax: false`) is drawn as
+// a dashed reference line instead of a bar, so "the tallest bar wins" stays
+// literally true even when that criterion asks for more. It carries a short tag
+// on the line and a full legend entry below it — the reference can sit anywhere
+// on the scale, so a long in-plot label would have to cross the bars. The data
+// table names the same three states in words.
+
+const REF_NOTE = "different target, not in the max";
 
 const DIMS: ChartDims = {
   width: 460,
@@ -71,8 +81,34 @@ export default function TakeMaxBars({
               </g>
             );
           })}
+          {/* Non-competing criteria: a dashed reference line drawn over the bars,
+              tagged with its id and value; the legend below carries the rest. */}
+          {g.references.map((r) => (
+            <g key={r.id}>
+              <line
+                className="bars__ref-line"
+                x1={0}
+                y1={r.y}
+                x2={g.innerWidth}
+                y2={r.y}
+              />
+              <text className="bars__ref-label" x={0} y={r.y - 6} textAnchor="start">
+                {r.id} {fmtN(r.n)}
+              </text>
+            </g>
+          ))}
         </g>
       </svg>
+      {g.references.length > 0 && (
+        <ul className="chart__legend">
+          {g.references.map((r) => (
+            <li key={r.id} className="chart__legend-item">
+              <span className="chart__legend-dash" aria-hidden="true" />
+              {r.id} — {r.label}: {r.n.toLocaleString()} — {REF_NOTE}.
+            </li>
+          ))}
+        </ul>
+      )}
       <figcaption className="chart__caption">{caption}</figcaption>
       <details className="chart__table">
         <summary>View as data table</summary>
@@ -92,7 +128,7 @@ export default function TakeMaxBars({
                   {d.id} — {d.label}
                 </th>
                 <td>{d.n === null ? "n/a" : d.n}</td>
-                <td>{d.binding ? "yes" : "no"}</td>
+                <td>{d.inMax ? (d.binding ? "yes" : "no") : REF_NOTE}</td>
               </tr>
             ))}
           </tbody>

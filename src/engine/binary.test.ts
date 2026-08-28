@@ -64,6 +64,51 @@ describe("binary B2 — small MAPE (van Smeden, ported)", () => {
   });
 });
 
+describe("binary take-the-max excludes B2 — pmsampsize is the reference implementation", () => {
+  // Reported by a user comparing the app against Stata:
+  //   pmsampsize, type(b) cstatistic(0.89) parameters(24) prevalence(0.17)
+  // B2 asks for 792 and used to win the max, so the headline N stopped agreeing
+  // with the package. B2 stays OUT of the maximum because (a) pmsampsize, written
+  // by the method's authors, does not compute it, (b) it targets a mean absolute
+  // error in the individual risks rather than overfitting in this model, and
+  // (c) nFromMape takes no R²cs, so folding it in freezes the final N for every
+  // C-statistic above about 0.86. See docs/pmsampsize-discrepancy.md.
+  it("returns the optimism criterion, not MAPE, for the reported C = 0.89 case", () => {
+    const r = binarySampleSize({
+      parameters: 24,
+      prevalence: 0.17,
+      r2cs: cToR2cs(0.89, 0.17),
+    });
+    expect(crit(r, "B2")).toBe(792); // still computed, still reported
+    expect(r.bindingId).toBe("B4");
+    // 668, not the package's 667: the app's deterministic C->R²cs lands on
+    // 0.28707 where Stata's seeded simulation gives 0.28774. That one-participant
+    // conversion gap is a separate tracked issue — fed the package's own R²cs,
+    // the engine reproduces 667 exactly.
+    expect(r.n).toBe(668);
+    expect(binarySampleSize({ parameters: 24, prevalence: 0.17, r2cs: 0.28774 }).n).toBe(667);
+  });
+
+  it("never binds a criterion outside the maximum, even when it is the largest", () => {
+    // Keyed off `inMax`, not off the id "B2": the rule is about competing in the
+    // maximum, not about one particular criterion.
+    const r = binarySampleSize({
+      parameters: 24,
+      prevalence: 0.17,
+      r2cs: cToR2cs(0.95, 0.17),
+    });
+    const outside = r.criteria.filter((c) => !c.inMax);
+    const competing = r.criteria.filter((c) => c.inMax);
+    const largest = Math.max(...r.criteria.map((c) => c.n ?? -Infinity));
+
+    expect(outside.length).toBeGreaterThan(0);
+    expect(outside.some((c) => c.n === largest)).toBe(true); // it IS the largest
+    expect(r.n).toBeLessThan(largest); // and it still does not set the answer
+    expect(r.n).toBe(Math.max(...competing.map((c) => c.n ?? -Infinity)));
+    expect(r.criteria.find((c) => c.id === r.bindingId)!.inMax).toBe(true);
+  });
+});
+
 describe("binary EPP is type-specific (n·φ/P) and never NaN", () => {
   it("EPP = round(n·φ/P, 2); events = ceil(n·φ)", () => {
     // Shrinkage-bound. The oracle (pmsampsize) ceils the raw 1698.037 to 1699;

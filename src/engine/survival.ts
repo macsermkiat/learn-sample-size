@@ -66,12 +66,14 @@ export function survivalSampleSize(input: SurvivalInput): SampleSizeResult {
       id: "T1",
       label: "Precise risk at the timepoint",
       n: nRisk,
+      inMax: true,
+      pmsampsizeCriteria: 3,
       note:
         "In pmsampsize 1.1.3 this criterion reports the precision achieved at " +
         "max(shrinkage, optimism) rather than independently increasing N.",
     },
-    { id: "T2", label: "Required shrinkage", n: nShrink },
-    { id: "T3", label: "Small optimism", n: nOptim },
+    { id: "T2", label: "Required shrinkage", n: nShrink, inMax: true, pmsampsizeCriteria: 1 },
+    { id: "T3", label: "Small optimism", n: nOptim, inMax: true, pmsampsizeCriteria: 2 },
   ];
 
   const n = Math.max(nShrink, nOptim, nRisk);

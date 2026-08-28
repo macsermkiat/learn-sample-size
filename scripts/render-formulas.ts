@@ -14,8 +14,10 @@ import katex from "katex";
 // (set as the container aria-label, which overrides the visual markup).
 const FORMULAS: Record<string, { tex: string; aria: string }> = {
   takeMax: {
-    tex: String.raw`N=\max\bigl(n_1,\,n_2,\,n_3,\,n_4\bigr)`,
-    aria: "The required sample size N is the maximum of the sample sizes from each criterion.",
+    tex: String.raw`N=\max\bigl(n_1,\,n_2,\,\ldots,\,n_k\bigr)`,
+    aria:
+      "The required sample size N is the maximum of the sample sizes from each " +
+      "competing criterion.",
   },
   riskPrecision: {
     tex: String.raw`n=\left(\frac{1.96}{\delta}\right)^{2}\,\varphi\,(1-\varphi)`,

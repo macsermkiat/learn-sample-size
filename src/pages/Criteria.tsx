@@ -12,6 +12,7 @@ const bars: BarInput[] = ex1.criteria.map((c) => ({
   label: c.label,
   n: c.n,
   binding: c.id === ex1.bindingId,
+  inMax: c.inMax,
 }));
 
 function Criterion({
@@ -128,14 +129,16 @@ export default function Criteria() {
 
       <h2>Take the largest</h2>
       <p>
-        The final required sample size is simply the maximum across the criteria. Any
-        criterion that does not apply (for example MAPE when P &gt; 30) is dropped, not
-        counted as zero.
+        The final required sample size is simply the maximum across the criteria that
+        compete. Any criterion that does not apply (for example MAPE when P &gt; 30) is
+        dropped, not counted as zero. The MAPE criterion (B2) is reported alongside the
+        others but stays outside the maximum: it targets a different quantity, and{" "}
+        <code>pmsampsize</code> does not compute it.
       </p>
       <Formula name="takeMax" />
       <TakeMaxBars
         data={bars}
-        caption="Pre-eclampsia (Example 1): the four criteria. The required shrinkage (B3) is the tallest, so N = 5249. The events-per-variable criterion (B1) alone would have allowed just 73."
+        caption="Pre-eclampsia (Example 1): the three competing criteria. The required shrinkage (B3) is the tallest, so N = 5249. The events-per-variable criterion (B1) alone would have allowed just 73. The dashed line is the MAPE criterion, reported but not part of the maximum."
       />
 
       <h2>Where R²cs comes from</h2>

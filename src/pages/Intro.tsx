@@ -11,6 +11,7 @@ const bars: BarInput[] = preeclampsia.criteria.map((c) => ({
   label: c.label,
   n: c.n,
   binding: c.id === preeclampsia.bindingId,
+  inMax: c.inMax,
 }));
 
 export default function Intro() {
@@ -45,14 +46,14 @@ export default function Intro() {
         <p>
           Riley's method computes a required sample size for each of several{" "}
           <strong>criteria</strong> and tells you to <strong>take the largest</strong>.
-          Here is the paper's pre-eclampsia example (Example&nbsp;1): four criteria, and
-          the one that <em>binds</em> is not events-per-variable — it is the{" "}
+          Here is the paper's pre-eclampsia example (Example&nbsp;1): three competing
+          criteria, and the one that <em>binds</em> is not events-per-variable — it is the{" "}
           <strong>required shrinkage</strong>, driven by the anticipated R²<sub>cs</sub>.
         </p>
         <Link className="thumb-link" to="/calculator" aria-label="Open the calculator with the pre-eclampsia example">
           <TakeMaxBars
             data={bars}
-            caption="Pre-eclampsia (Example 1): required N per criterion. The binding criterion — required shrinkage (B3) — needs 5249; events-per-variable (B1) needs only 73. Open the calculator to move the inputs."
+            caption="Pre-eclampsia (Example 1): required N per competing criterion. The binding criterion — required shrinkage (B3) — needs 5249; events-per-variable (B1) needs only 73. The dashed line is the MAPE criterion, reported but not part of the maximum. Open the calculator to move the inputs."
           />
         </Link>
         <p className="muted">
