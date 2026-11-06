@@ -3,6 +3,19 @@ import { Link, useLocation } from "react-router-dom";
 import Nav from "./Nav";
 import { ROUTES, SITE_TITLE } from "../app/routes";
 
+const AUTHOR_LINKS = [
+  { label: "Protocol.med", href: "https://protocol.med" },
+  { label: "royyak.com", href: "https://www.royyak.com" },
+  { label: "YouTube", href: "https://www.youtube.com/@ProtocolDotMed" },
+  { label: "X", href: "https://x.com/ProtocolDotMed" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/114094267" },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/profile.php?id=61572147557883",
+  },
+  { label: "Instagram", href: "https://www.instagram.com/protocoldotmed/" },
+] as const;
+
 export default function Layout({ children }: { children: ReactNode }) {
   const { pathname } = useLocation();
   const mainRef = useRef<HTMLElement>(null);
@@ -68,6 +81,15 @@ export default function Layout({ children }: { children: ReactNode }) {
             authors' <code>pmsampsize</code> package — not reproductions of the
             paper.
           </p>
+          <ul className="site-footer__links" aria-label="Author links">
+            {AUTHOR_LINKS.map(({ label, href }) => (
+              <li key={href}>
+                <a href={href} target="_blank" rel="noreferrer">
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </footer>
     </div>
